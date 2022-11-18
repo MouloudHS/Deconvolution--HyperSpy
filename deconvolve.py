@@ -1,9 +1,10 @@
 from skimage import measure
 
 def get_psf_from_entropy(signal, p = 0.85):
+    from skimage.measure import entropy
     
     entropy_map = signal.deepcopy()
-    entropy_map.map(measure.shannon_entropy)
+    entropy_map.map(entropy)
     mean_entropy = entropy_map.data.mean()
     
     mean_entropy = entropy_map.data.mean()
